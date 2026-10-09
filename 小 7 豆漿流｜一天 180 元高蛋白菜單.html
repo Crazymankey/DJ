@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>小 7 豆漿流｜一天 180 元高蛋白菜單</title>
+<style>
+:root{--bg:#fff7e6;--card:#fff;--ink:#3b2a1a;--sub:#7a6451;--accent:#e8590c;--green:#2f9e44;--line:#f1e0c4}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#241a10;--card:#33261a;--ink:#fbeedb;--sub:#c8b39a;--line:#4a3826}}
+:root[data-theme="dark"]{--bg:#241a10;--card:#33261a;--ink:#fbeedb;--sub:#c8b39a;--line:#4a3826}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%}
+body{font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;font-size:16px;line-height:1.7;color:var(--ink);background:var(--bg);background-image:radial-gradient(circle at 15% 10%,rgba(232,89,12,.14),transparent 40%),radial-gradient(circle at 85% 90%,rgba(47,158,68,.14),transparent 40%);padding:env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0)}
+.app{max-width:1000px;margin:0 auto;min-height:100%;display:flex;flex-direction:column;padding:16px}
+header{text-align:center;padding:8px 0 12px}
+header h1{font-size:1.5rem;line-height:1.3}
+header p{color:var(--sub)}
+.dots{display:flex;justify-content:center;gap:8px;margin:8px 0}
+.dots button{width:44px;height:44px;background:none;border:0;cursor:pointer;position:relative}
+.dots button::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:12px;margin:-6px;border-radius:50%;background:var(--line)}
+.dots button.on::after{background:var(--accent)}
+.stage{flex:1;position:relative;overflow:hidden}
+.page{display:none;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px;box-shadow:0 8px 24px rgba(0,0,0,.08);animation:in .4s ease}
+.page.on{display:block}
+@keyframes in{from{opacity:0;transform:translateX(30px)}to{opacity:1;transform:none}}
+h2{font-size:1.3rem;margin-bottom:12px;color:var(--accent)}
+.grid{display:grid;gap:12px;grid-template-columns:1fr}
+.box{border:1px solid var(--line);border-radius:14px;padding:14px}
+.box b{display:block;margin-bottom:4px}
+.box span{color:var(--ink)}
+.meal{display:flex;flex-direction:column;gap:6px}
+.box .tag{align-self:flex-start;background:#b33e00;color:#fff;border-radius:99px;padding:4px 14px;font-size:1rem;font-weight:700}
+.box .tag.g{background:#1e7a34}
+.price{font-size:1.4rem;font-weight:700;color:var(--accent)}
+.stats{display:grid;gap:12px;grid-template-columns:1fr 1fr;text-align:center}
+.stats div{background:var(--bg);border-radius:14px;padding:16px}
+.stats strong{display:block;font-size:1.2rem;color:var(--green);overflow-wrap:anywhere}
+.nav{display:flex;justify-content:space-between;gap:12px;padding-top:14px}
+.nav button{min-width:44px;min-height:44px;padding:0 24px;border:0;border-radius:99px;background:var(--accent);color:#fff;font-size:1rem;cursor:pointer}
+.nav button:disabled{opacity:.35;cursor:default}
+.nut{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}.nut em{font-style:normal;background:#ffe8cc;color:#5a2d00;border-radius:99px;padding:2px 10px;font-size:.9rem}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .nut em{background:#5a3a1e;color:#fff3e0}}
+.seg{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}.seg button{min-height:44px;min-width:44px;padding:0 18px;border:1px solid var(--line);border-radius:99px;background:var(--bg);color:var(--ink);font-size:1rem;cursor:pointer}.seg button.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.note{margin-top:12px;color:var(--sub);font-size:.95rem}
+img{max-width:100%}
+@media (min-width:768px){.app{padding:24px}header h1{font-size:2rem}.grid.three{grid-template-columns:repeat(3,1fr)}.page{padding:32px}.stats{grid-template-columns:repeat(2,1fr)}.stats strong{font-size:1.6rem}}
+@media (min-width:1280px){.page{padding:40px 56px}}
+</style>
+</head>
+<body>
+<div class="app">
+<header>
+<h1>🥛 小 7 豆漿流</h1>
+<p>全台走到哪都能吃｜一天約 180 元高蛋白省錢菜單</p>
+</header>
+<div class="dots" id="dots"></div>
+<main class="stage">
+
+<section class="page on">
+<h2>三個精髓</h2>
+<p style="margin-bottom:12px;color:var(--sub)">想吃得健康、補足蛋白質，口袋不用失血。一天花費約 165～185 元，免下廚、全台都能複製。</p>
+<div class="grid three">
+<div class="box"><b>1. 蛋白質分餐吃</b><span>早午餐靠「無糖豆漿＋蛋」補滿蛋白質，晚餐再用自助餐夾爆青菜補齊纖維，不必每餐硬塞青菜。</span></div>
+<div class="box"><b>2. 自助餐改吃「菜飯」</b><span>去掉炸雞腿、炸排骨，改夾豆腐、豆乾或生豆皮配青菜，更清爽，價格也降到 60 元上下。</span></div>
+<div class="box"><b>3. 早午餐全靠小 7</b><span>不論台北或屏東，買到的東西與價格都一樣，不用每天煩惱要吃什麼。</span></div>
+</div>
+</section>
+
+<section class="page">
+<h2>一日 180 元極簡三餐</h2>
+<div class="grid three">
+<div class="box meal"><span class="tag">早餐・小 7</span><b>無糖高纖豆漿 1 瓶＋茶葉蛋 1 顆</b><div class="price">約 $38–40</div><span>吸收好的 20g 蛋白質，喚醒早晨代謝。</span><div class="nut"><em>🔥 約 205 kcal</em><em>💪 蛋白質約 20 g</em></div></div>
+<div class="box meal"><span class="tag">午餐・小 7</span><b>無糖高纖豆漿＋茶葉蛋＋蒸地瓜（小/中）</b><div class="price">約 $65–75</div><span>原型地瓜的澱粉加高纖豆漿，下午精神好、不打瞌睡。</span><div class="nut"><em>🔥 約 385 kcal</em><em>💪 蛋白質約 23 g</em></div></div>
+<div class="box meal"><span class="tag g">晚餐・自助餐</span><b>菜飯：半碗～一碗飯＋豆腐/豆乾/生豆皮＋2～3 格青菜</b><div class="price">約 $60–70</div><span>補齊一天的青菜纖維，清爽好消化，睡前沒負擔。</span><div class="nut"><em>🔥 約 450 kcal</em><em>💪 蛋白質約 20 g</em></div></div>
+</div>
+</section>
+
+<section class="page">
+<h2>預算與營養總計</h2>
+<div class="seg" id="seg"><button data-k="d" class="on">一天</button><button data-k="w">一週</button><button data-k="mo">一個月</button></div>
+<div class="stats">
+<div><strong id="bud">$163～185</strong><span id="plab">一天總花費</span></div>
+<div><strong id="sav">$15～37</strong><span id="slab">比一天 200 元預算省下</span></div>
+<div><strong>約 1,040 kcal</strong>每日熱量（估算）</div>
+<div><strong>約 63 g</strong>每日蛋白質（約 55～65 g）</div>
+</div>
+<p class="note">一週以 7 天、一個月以 30 天計算，每天都照這份菜單吃的情況。</p>
+</section>
+
+<section class="page">
+<h2>為什麼吃完不會餓？</h2>
+<p>大豆蛋白搭配地瓜與青菜的纖維，在胃裡消化得慢，血糖不會忽高忽低，大腦就不容易發出「想吃零食、想暴飲暴食」的訊號。</p>
+<p style="margin-top:12px">想省錢、想吃得清爽又不想每天備餐的外食族，很適合試試這套！</p>
+</section>
+
+<section class="page">
+<h2>熱量與蛋白質怎麼看？</h2>
+<div class="grid">
+<div class="box"><b>🔥 熱量（kcal）</b><span>熱量是身體一天的「能量收入」。多數成人一天約需 1,600～2,400 kcal，會因性別、體重、活動量不同。這份菜單約 1,000～1,100 kcal，偏低，適合想控制熱量的人；如果活動量大或不想瘦，晚餐飯加到一碗、多加一顆蛋或一份豆腐就能補上。</span></div>
+<div class="box"><b>💪 蛋白質（g）</b><span>蛋白質負責修補肌肉與維持代謝，吃夠也比較不容易餓。一般成人每公斤體重約需 1.0～1.2 g，例如 55 公斤約 55～66 g，所以約 63 g 對體重 50～60 公斤的人剛好；體重更重或有運動習慣，就要再多補一些。</span></div>
+<div class="box"><b>🧮 常見食物參考（估算）</b><span>無糖豆漿 1 瓶：約 130 kcal、13 g ｜茶葉蛋 1 顆：約 75 kcal、7 g ｜蒸地瓜（中）：約 180 kcal、3 g ｜豆腐/豆乾 1 份：約 100～150 kcal、10～15 g</span></div>
+</div>
+<p class="note">以上數值是依常見食品與份量估算，各品牌、份量與自助餐用油不同，實際請以包裝標示為準。</p>
+</section>
+
+</main>
+<div class="nav">
+<button id="prev" aria-label="上一頁">← 上一頁</button>
+<button id="next" aria-label="下一頁">下一頁 →</button>
+</div>
+</div>
+<script>
+(function(){
+var pages=document.querySelectorAll('.page'),dots=document.getElementById('dots'),prev=document.getElementById('prev'),next=document.getElementById('next'),i=0;
+pages.forEach(function(_,n){var b=document.createElement('button');b.setAttribute('aria-label','第 '+(n+1)+' 頁');b.onclick=function(){go(n)};dots.appendChild(b)});
+function go(n){i=Math.max(0,Math.min(pages.length-1,n));pages.forEach(function(p,k){p.classList.toggle('on',k===i)});
+dots.querySelectorAll('button').forEach(function(d,k){d.classList.toggle('on',k===i)});prev.disabled=i===0;next.disabled=i===pages.length-1}
+prev.onclick=function(){go(i-1)};next.onclick=function(){go(i+1)};
+document.addEventListener('keydown',function(e){if(e.key==='ArrowLeft')go(i-1);if(e.key==='ArrowRight')go(i+1)});
+var sx=null;document.addEventListener('touchstart',function(e){sx=e.touches[0].clientX},{passive:true});
+document.addEventListener('touchend',function(e){if(sx===null)return;var d=e.changedTouches[0].clientX-sx;if(Math.abs(d)>50)go(i+(d<0?1:-1));sx=null});
+var R={d:['一天總花費','比一天 200 元預算省下',1],w:['一週（7 天）總花費','比一週 1,400 元預算省下',7],mo:['一個月（30 天）總花費','比一個月 6,000 元預算省下',30]};
+function f(n){return n.toLocaleString('en-US')}
+document.getElementById('seg').addEventListener('click',function(e){var k=e.target.getAttribute('data-k');if(!k)return;var m=R[k][2];
+document.getElementById('bud').textContent='$'+f(163*m)+'～'+f(185*m);document.getElementById('sav').textContent='$'+f(15*m)+'～'+f(37*m);
+document.getElementById('plab').textContent=R[k][0];document.getElementById('slab').textContent=R[k][1];
+this.querySelectorAll('button').forEach(function(b){b.classList.toggle('on',b===e.target)})});
+go(0);
+})();
+</script>
+</body>
+</html>
